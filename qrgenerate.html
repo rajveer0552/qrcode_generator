@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        .screen {
+            padding: 10px;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .clickme {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .clickme:hover {
+            background-color: #45a049;
+        }
+
+        .code {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="container">
+        <h2>QR Code Generator</h2>
+        <input type="text" class="screen" placeholder="Enter text"><br><br>
+        <div>
+            <img src="" alt="" class="code" />
+        </div><br>
+        <button class="clickme">Generate QR Code</button>
+        
+    </section>
+
+    <script>
+        let inputbox = document.querySelector(".screen");
+        let button = document.querySelector(".clickme");
+        let coders = document.querySelector(".code");
+        button.addEventListener('click', function(){
+            let inputvalue = inputbox.value;
+            let scan = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + inputvalue;
+            coders.src = scan;
+        });
+    </script>
+</body>
+
+</html>
